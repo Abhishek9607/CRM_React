@@ -1,11 +1,10 @@
-import React from 'react'
+import { configureStore } from "@reduxjs/toolkit";
+import AuthSliceReducer from "../Redux/Slices/AuthSlice";
+const store = configureStore({
+    reducer: {
+        auth: AuthSliceReducer
+    },
+    devTools: true
+});
 
-const store = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
-
-export default store
+export default store;
