@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MainRouter = () => {
+const store = () => {
   return (
     <div>
         
@@ -8,4 +8,4 @@ const MainRouter = () => {
   )
 }
 
-export default MainRouter
+export default store
