@@ -1,14 +1,14 @@
 
-import './App.css'
+import './App.css';
 
-import Signup from './Pages/auth/Signup'
+import Signup from './Pages/auth/Signup';
 
 function App() {
  
 
   return (
     <Signup/>
-  )
+  );
 }
 
-export default App
+export default App;

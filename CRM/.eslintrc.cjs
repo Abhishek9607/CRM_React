@@ -16,6 +16,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "simple-import-sort/imports": "error"
+    "simple-import-sort/imports": "error",
+    "semi": [1, "always"]
+  
   },
 }
