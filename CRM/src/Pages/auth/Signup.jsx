@@ -1,5 +1,6 @@
-import React from 'react'
-import Login from './Login'
+import React from 'react';
+
+import Login from './Login';
 
 const Signup = () => {
   return (
@@ -18,11 +19,17 @@ const Signup = () => {
          <div className='w-full'>
          <input type="password" placeholder="password.." className="text-black input input-bordered input-primary w-full max-w-xs bg-white" />
          </div>
+         <div className='w-full'>
+           <input type="text" placeholder="Client Name" className="text-black input input-bordered input-primary w-full max-w-xs bg-white" />
+         </div>
+         <div className='w-full'>
+           <input type="text" placeholder="User status" className="text-black input input-bordered input-primary w-full max-w-xs bg-white" />
+         </div>
          <details className="dropdown mb-4 w-full">
-            <summary className=" btn">open or close</summary>
-           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-             <li><a>Home</a></li>
-              <li><a>About</a></li>
+            <summary className=" btn">USER STatus</summary>
+           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 text-white">
+             <li><a>Approved</a></li>
+              <li><a>Denied</a></li>
            </ul>
         </details>
         <div className="card-actions w-full mt-4">
@@ -31,7 +38,7 @@ const Signup = () => {
       </div>
    </div>
   </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
