@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 import { login } from '../../Redux/Slices/AuthSlice';
 
@@ -7,6 +8,7 @@ import { login } from '../../Redux/Slices/AuthSlice';
 const Login = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [loginDetails, setLoginDetails] = useState({
     email: "",
@@ -21,11 +23,12 @@ const Login = () => {
     });
   }
 
-  function onSubmit() {
+  async function onSubmit() {
     if(!loginDetails.email || !loginDetails.password) return;
     console.log("calling login", loginDetails);
-    const response = dispatch(login(loginDetails));
+    const response = await dispatch(login(loginDetails));
     console.log(response);
+    if(response.payload) navigate("/");
   }
 
   return (
