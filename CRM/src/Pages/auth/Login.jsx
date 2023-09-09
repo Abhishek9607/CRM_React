@@ -15,6 +15,14 @@ const Login = () => {
     password: ""
   });
 
+  function resetLoginState() {
+    setLoginDetails({
+      email: "",
+      password: ""
+    });
+
+  }
+
   function handleInputChange(e) {
     const {name, value} = e.target;
     setLoginDetails({
@@ -29,6 +37,7 @@ const Login = () => {
     const response = await dispatch(login(loginDetails));
     console.log(response);
     if(response.payload) navigate("/");
+    else resetLoginState();
   }
 
   return (
@@ -44,6 +53,7 @@ const Login = () => {
               name="email"
               type="text" 
               placeholder="email"
+              value={loginDetails.email}
               className="text-black input input-bordered input-primary w-full max-w-xs bg-white" 
            />
          </div>
@@ -53,6 +63,7 @@ const Login = () => {
           name="password"
            type="password"
            placeholder="password.."
+           value={loginDetails.password}
            className="text-black input input-bordered input-primary w-full max-w-xs bg-white" 
           />
          </div>
