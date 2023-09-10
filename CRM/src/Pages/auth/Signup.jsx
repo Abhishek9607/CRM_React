@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -60,10 +61,12 @@ const Signup = () => {
         !signupDetails.clientName) return;
         const response = await dispatch(signup(signupDetails));
         console.log(response);
+        // toast.success("successfully signed up");
         if(response.payload) {
           navigate("/login");
         } 
           else {
+            // toast.error("Something went wrong, please try again !");
             resetSingnupState();
           }
         
@@ -136,7 +139,7 @@ const Signup = () => {
           Login
         </button>
        </div>
-        <p className="text-lg text-white">
+        <p className="text-lg text-white text-center">
           Already have  an account ? <Link className=" text-black font-semibold hover:text-yellow-100" to="/Login">Login</Link>
         </p>
       </div>
