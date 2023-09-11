@@ -1,8 +1,12 @@
+import HomeLayouts from "../../layouts/HomeLayouts";
 
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <HomeLayouts>
+        <h1>Home</h1>
+
+    </HomeLayouts>
   );
 };
 
