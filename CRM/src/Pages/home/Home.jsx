@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import{ ArcElement, Chart as ChartJS, Legend,Title,Tooltip }  from "chart.js";
+import { Pie } from "react-chartjs-2";
 import { BsFillPencilFill } from "react-icons/bs";
 import { MdCancel,MdOutlineDoneAll, MdPending } from 'react-icons/md';
 import { TbProgressBolt } from 'react-icons/tb';
@@ -7,11 +8,25 @@ import Card from '../../components/card';
 import useTickets from "../../hooks/useTickets";
 import HomeLayouts from "../../layouts/HomeLayouts";
 
+ChartJS.register(ArcElement, Legend, Title, Tooltip);
 
 const Home = () => { 
 
   
   const [ticketsState] = useTickets();
+  const pieChartData = {
+    labels: Object.keys(ticketsState.ticketDistribution),
+    fontColor: "white",
+    datasets: [
+      {
+        label: "Game data",
+        data: Object.values(ticketsState.ticketDistribution),
+        backgroundColor: ["yellow", "red", "green", "blue", "purple"],
+        borderColor: ["yellow", "red", "green", "blue", "purple"],
+        borderWidth: 1,
+      }
+    ] 
+  };
   
   return (
     <HomeLayouts>
@@ -77,6 +92,11 @@ const Home = () => {
         </Card>
        </div>
      )}
+     <div className="mt-10 flex justify-center items-center gap-10">
+      <div className="w-80 h-80">
+        <Pie data={pieChartData} />
+      </div>
+     </div>
 
     </HomeLayouts>
   );

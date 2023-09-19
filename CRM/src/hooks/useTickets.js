@@ -15,9 +15,10 @@ function useTickets() {
     const dispatch = useDispatch();
 
     async function loadTickets() {
-      if(ticketState.downloadedTickets.length ==  0) 
-     await dispatch(getAllTicketsforTheUser());
-     if( searchParams.get("status")) {
+      if(ticketState.downloadedTickets.length ==  0) {
+        await dispatch(getAllTicketsforTheUser());
+      } 
+     if(searchParams.get("status")) {
       // dispatch a filter action
       dispatch(filterTickets({status: searchParams.get("status")}));
      } else {
