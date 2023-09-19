@@ -19,7 +19,7 @@ const Home = () => {
        <div className="mt-10 flex flex-row justify-center items-center gap-5 flex-wrap">
        <Card 
           titleText="open"
-          status={ticketsState.ticketDistribution.open / ticketsState.ticketList.length}
+          status={ticketsState.ticketDistribution.open / ticketsState.downloadedTickets.length}
           quantity={ticketsState.ticketDistribution.open}
           background="bg-yellow-300"
           borderColor="border-green-300"
@@ -31,7 +31,7 @@ const Home = () => {
  
         <Card 
           titleText="inProgress"
-          status={ticketsState.ticketDistribution.inProgress / ticketsState.ticketList.length}
+          status={ticketsState.ticketDistribution.inProgress / ticketsState.downloadedTickets.length}
           quantity={ticketsState.ticketDistribution.inProgress}
           background="bg-yellow-300" 
           borderColor="border-green-300"
@@ -42,7 +42,7 @@ const Home = () => {
         </Card>
         <Card 
             titleText="resolved"
-            status={ticketsState.ticketDistribution.resolved / ticketsState.ticketList.length} 
+            status={ticketsState.ticketDistribution.resolved / ticketsState.downloadedTickets.length} 
             quantity={ticketsState.ticketDistribution.resolved}
             background="bg-yellow-300" 
             borderColor="border-green-300" 
@@ -54,7 +54,7 @@ const Home = () => {
  
         <Card 
             titleText="onHold"
-            status={ticketsState.ticketDistribution.onHold / ticketsState.ticketList.length} 
+            status={ticketsState.ticketDistribution.onHold / ticketsState.downloadedTickets.length} 
             quantity={ticketsState.ticketDistribution.onHold}
             background="bg-yellow-300" 
             borderColor="border-green-300" 
@@ -66,7 +66,7 @@ const Home = () => {
  
         <Card 
            titleText="cancelled"
-           status={ticketsState.ticketDistribution.cancelled / ticketsState.ticketList.length}
+           status={ticketsState.ticketDistribution.cancelled / ticketsState.downloadedTickets.length}
            quantity={ticketsState.ticketDistribution.cancelled}
            background="bg-yellow-300" 
            borderColor="border-green-300" 
