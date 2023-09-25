@@ -1,33 +1,23 @@
 import{ ArcElement, Chart as ChartJS, Legend,Title,Tooltip }  from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Bar,Line, Pie } from "react-chartjs-2";
 import { BsFillPencilFill } from "react-icons/bs";
 import { MdCancel,MdOutlineDoneAll, MdPending } from 'react-icons/md';
 import { TbProgressBolt } from 'react-icons/tb';
 
 import Card from '../../components/card';
+import useCharts from "../../hooks/useCharts";
 import useTickets from "../../hooks/useTickets";
 import HomeLayouts from "../../layouts/HomeLayouts";
 
 ChartJS.register(ArcElement, Legend, Title, Tooltip);
 
-const Home = () => { 
 
+const Home = () => { 
+  const [pieChartData, lineChartData,barChartData] = useCharts();
   
   const [ticketsState] = useTickets();
-  const pieChartData = {
-    labels: Object.keys(ticketsState.ticketDistribution),
-    fontColor: "white",
-    datasets: [
-      {
-        label: "Game data",
-        data: Object.values(ticketsState.ticketDistribution),
-        backgroundColor: ["yellow", "red", "green", "blue", "purple"],
-        borderColor: ["yellow", "red", "green", "blue", "purple"],
-        borderWidth: 1,
-      }
-    ] 
-  };
-  
+
+
   return (
     <HomeLayouts>
      {ticketsState && (
@@ -95,6 +85,18 @@ const Home = () => {
      <div className="mt-10 flex justify-center items-center gap-10">
       <div className="w-80 h-80">
         <Pie data={pieChartData} />
+      </div>
+     </div>
+
+     <div className="mt-10 mb-10 flex justify-center   items-center gap-10">
+                <div className="w-[50rem] bg-[wheat]">
+                    <Line data={lineChartData}/>
+                </div>
+            </div>
+
+     <div  className="mt-10 mb-10 flex justify-center items-center gap-10">
+      <div className="w-[50rem] bg-[wheat]">
+      <Bar data={barChartData}/>
       </div>
      </div>
 
