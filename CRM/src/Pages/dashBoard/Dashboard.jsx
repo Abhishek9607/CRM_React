@@ -6,6 +6,7 @@ import { usePDF } from "react-to-pdf";
 import useTickets from '../../hooks/useTickets';
 import HomeLayout from '../../layouts/HomeLayouts';
 
+// eslint-disable-next-line react/prop-types
 const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 // const conditionalRowStyles = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 
