@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 
+import UserDetailsModals from '../../components/UserDetailsModals';
 import axiosInstance from '../../config/axiosInstance';
 import HomeLayout from '../../layouts/HomeLayouts';
 
@@ -43,7 +44,8 @@ function ListAllUsers() {
         email: '',
         userType: '',
         userStatus: '',
-        clientName: ''
+        clientName: '',
+        id: ''
     }); 
 
 async function loadUsers() {
@@ -58,7 +60,7 @@ async function loadUsers() {
 useEffect(() => {
     loadUsers();
 }, []);
-
+     
 
   return (
     <HomeLayout>
@@ -72,7 +74,8 @@ useEffect(() => {
                     email: row.email,
                     userType: row.userType,
                     userStatus: row.userStatus,
-                    clientName: row.clientName
+                    clientName: row.clientName,
+                    id: row._id
 
                 });
                 document.getElementById('user_details_modal').showModal();
@@ -83,19 +86,7 @@ useEffect(() => {
         }
         {/* Open the modal using document.getElementById('ID').showModal() method */}
             {/* <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>open modal</button> */}
-                <dialog id="user_details_modal" className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">User Details</h3>
-                    <p className="py-4">Name:  <span className='text-yellow-500'>{userDisplay.name}</span></p>
-                    <p className="py-4">Email: <span className='text-yellow-500'>{userDisplay.email}</span></p>
-                    <p className="py-4">Type:  <span className='text-yellow-500'>{userDisplay.userType}</span></p>
-                    <p className="py-4">Status:  <span className='text-yellow-500'>{userDisplay.userStatus}</span></p>
-                    <p className="py-4">Client Name: <span className='text-yellow-500'>{userDisplay.clientName}</span></p>
-                </div>
-                <form method="dialog" className="modal-backdrop">
-                    <button>close</button>
-                </form>
-                </dialog>
+                < UserDetailsModals key={userDisplay.email} user={userDisplay}/>
         </div>
     </HomeLayout>
   );

@@ -61,12 +61,12 @@ const Signup = () => {
         !signupDetails.clientName) return;
         const response = await dispatch(signup(signupDetails));
         console.log(response);
-        // toast.success("successfully signed up");
+        toast.success("successfully signed up");
         if(response.payload) {
           navigate("/login");
         } 
           else {
-            // toast.error("Something went wrong, please try again !");
+            toast.error("Something went wrong, please try again !");
             resetSingnupState();
           }
         
