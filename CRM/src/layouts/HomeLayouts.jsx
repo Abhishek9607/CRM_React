@@ -38,6 +38,7 @@ function HomeLayout({ children }) {
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                         <li><Link to={"/"}>View All Tickets</Link></li>
                         <li><Link to={"/Dashboard"}>Dashboard</Link></li>
+                       {authState.isLoggedIn && <li><Link to={"/create/ticket"}>CreateTicket</Link></li>}
                       {authState.role=='admin' &&  <li><Link to={"/users"}>All users</Link></li>}
 
                         <li className='absolute bottom-8 w-3/4'>

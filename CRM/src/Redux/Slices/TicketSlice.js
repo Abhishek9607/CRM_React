@@ -90,7 +90,7 @@ const ticketSlice = createSlice({
             });
         })
         .addCase(updateTicket.fulfilled, (state, action) => {
-            const updatedTicket = action.payload.data.result;
+            const updatedTicket = action?.payload?.data?.result;
             state.ticketList = state.ticketList.map((ticket) => {
                 if(ticket._id == updatedTicket._id) return updatedTicket;
                 return ticket;

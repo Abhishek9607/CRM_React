@@ -100,7 +100,7 @@ const customStyles = {
             pagination
        />
        }
-        <TicketDetailsModal ticket={selectedTicket}/>
+        <TicketDetailsModal ticket={selectedTicket} key={selectedTicket._id}/>
         </div>
       </div>
       
