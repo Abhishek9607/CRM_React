@@ -1,30 +1,33 @@
+import HomeLayouts from '../../layouts/HomeLayouts';
 function CreateTicket() {
   return (
-    <div to={"/create/ticket"}  className="min-h-[90vh] flex items-center justify-center">
-        <form action="">
-           
-        <div className="border-separate border border-sky-300 mb-11 mt-4 w-80 h-96  justify-center flex rounded-md">
-            <div className="form-control">
-            <h1 className=" mt-6 text text-3xl p-4 text-red-300 text-center font-bold  rounded-md ">Raise a Ticket</h1>
+   <HomeLayouts>
+         <div className="min-h-[90vh] flex justify-center items-center mt-11">
+      <form className="min-w-[40rem] border p-20 border-sky-400 rounded-md hover:bg-sky-900 transition-all ease-in-out duration-300">
+
+            <h1 className="text-3xl font-semibold text-white  text-center">
+                  Create new ticket
+            </h1>
+            <div className="form-control w-full my-4">
                 <label className="label">
-                   <span className="label-text">Your Email</span>
-              </label>
-             <label className="input-group" >
-               <span>Email</span>
-              <input type="textarea" placeholder="Enter title" className="input input-bordered text-center" />
-             </label>
-             <label className="mt-5">Description</label>
-             <textarea className="input input-bordered p-2 text-center w-full resize-none " placeholder="enter description"  rows="8"></textarea>
-
-             <button className="btn-success py-2 px-4 rounded-md mt-4 hover:bg-green-500 transition-all ease-in-out duration-300 hover:text-yellow-300">Submit</button>
-           </div>
-          
-           
-        </div>
-
-        </form>
-        </div>
-   
+                   <span className="label-text text-white text-lg">What is title of the issue?</span>
+                   </label>
+                    <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full bg-white text-black" />
+              </div>
+              <div className="form-control w-full my-4">
+                        <label className="label">
+                            <span className="label-text text-white text-lg">Please describe your issue?</span>
+                        </label>
+                        <textarea 
+                         placeholder="Type here" 
+                         className=" p-2 resize-none rounded-md input-primary w-full bg-white text-black"
+                         rows= "8"
+                         > </textarea>
+                    </div>
+                    <button className="w-full px-4 py-2 bg-green-500 text-lg font-semibold text-white rounded-md hover:bg-green-600 transition-all ease-in-out duration-300">submit</button>
+      </form>
+    </div>
+   </HomeLayouts>
   );
 }
 
